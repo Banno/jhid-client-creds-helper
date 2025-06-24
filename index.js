@@ -26,6 +26,11 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Path to the PEM encoded private key used to sign the assertion',
     type: 'string',
   })
+  .option('scope', {
+    describe: 'scopes to include in the token request and returned access token',
+    default: 'openid',
+    type: 'string',
+  })
   .command(
     'sign-jwt',
     'Only create a signed JWT for use with the Banno back office OAuth flow',
@@ -35,7 +40,7 @@ const argv = yargs(hideBin(process.argv))
 
 switch (argv._[0].toString().toLowerCase()) {
   case 'client-assertion':
-    clientAssertion(argv['client-id'], argv['private-key']).catch((e) =>
+    clientAssertion(argv['client-id'], argv['private-key'], argv['scope']).catch((e) =>
       console.error(e),
     );
     break;
