@@ -11,11 +11,6 @@ const packageJson = JSON.parse(
 
 const argv = yargs(hideBin(process.argv))
   .version(packageJson.version)
-  .command(
-    'client-assertion',
-    'Create a signed JWT to use as the client assertion for the OAuth token post',
-  )
-  .demandCommand(1)
   .option('client-id', {
     demandOption: true,
     describe: 'client id to use for the OAuth token flow',
@@ -26,15 +21,20 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Path to the PEM encoded private key used to sign the assertion',
     type: 'string',
   })
-  .option('scope', {
-    describe: 'scopes to include in the token request and returned access token',
-    default: 'openid',
-    type: 'string',
-  })
+  .command(
+    'client-assertion',
+    'Create a signed JWT to use as the client assertion for the OAuth token post',
+    (yargs) => yargs.option('scope', {
+      describe: 'scopes submitted with the token request',
+      default: 'openid',
+      type: 'string',
+    }),
+  )
   .command(
     'sign-jwt',
     'Only create a signed JWT for use with the Banno back office OAuth flow',
   )
+  .demandCommand(1)
   .strict()
   .help().argv;
 
