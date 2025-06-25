@@ -1,6 +1,6 @@
 {
   "name": "@jack-henry/jhid-client-creds-helper",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Helper utilities to debug connecting to Banno's Platform API using client credentials",
   "main": "index.js",
   "private": false,
