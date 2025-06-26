@@ -32,7 +32,7 @@ Create a signed JWT to use as the client_assertion and obtain an access_token.
 
 Example:
 ```text
-$ npx @jack-henry/jhid-client-creds-helper client-assertion --client-id=00000000-0000-0000-0000-000000000000 --private-key=./private.pem 
+$ npx @jack-henry/jhid-client-creds-helper client-assertion --client-id=00000000-0000-0000-0000-000000000000 --private-key=./private.pem --scope openid 
 ```
 
 ## First Time Setup
