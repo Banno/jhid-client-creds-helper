@@ -24,7 +24,8 @@ const argv = yargs(hideBin(process.argv))
   .command(
     'client-assertion',
     'Create a signed JWT to use as the client assertion for the OAuth token post',
-    (yargs) => yargs
+    (yargs) =>
+      yargs
         .option('scope', {
           describe: 'scopes submitted with the token request',
           default: 'openid',
@@ -45,9 +46,12 @@ const argv = yargs(hideBin(process.argv))
 
 switch (argv._[0].toString().toLowerCase()) {
   case 'client-assertion':
-    clientAssertion(argv['client-id'], argv['private-key'], argv['scope'], argv['resource']).catch((e) =>
-      console.error(e),
-    );
+    clientAssertion(
+      argv['client-id'],
+      argv['private-key'],
+      argv['scope'],
+      argv['resource'],
+    ).catch((e) => console.error(e));
     break;
   case 'sign-jwt':
     signJWT(argv['client-id'], argv['private-key']).catch((e) =>
