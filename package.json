@@ -30,7 +30,7 @@
     "chalk": "^4.1.0",
     "jose": "^4.10.4",
     "node-fetch": "^2.6.1",
-    "uuid": "^8.3.2",
+    "uuid": "^14.0.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
