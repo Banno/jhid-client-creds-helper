@@ -1,0 +1,29 @@
+version: 2
+registries:
+  banno-artifactory:
+    type: npm-registry
+    url: https://artifactory.banno-tools.com/artifactory/api/npm/npm/
+    username: ${{ secrets.ARTIFACTORY_USERNAME }}
+    password: ${{ secrets.ARTIFACTORY_API_TOKEN }}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:15"
+    versioning-strategy: "increase"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "build"
+      prefix-development: "build"
+      include: "scope"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
