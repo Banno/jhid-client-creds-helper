@@ -1,0 +1,12 @@
+# Documentation: https://github.com/Banno/backstage/blob/main/README.md
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 'jhid-client-creds-helper'
+  description: Helper utilities to debug connecting to Banno's Platform API using client credentials
+  annotations:
+    github.com/project-slug: 'banno/jhid-client-creds-helper'
+spec:
+  type: 'library'
+  owner: 'group:default/jha-psa-backstage-digital-prism'
+  lifecycle: 'production'
