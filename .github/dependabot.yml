@@ -27,3 +27,10 @@ updates:
         dependency-type: "production"
       development-dependencies:
         dependency-type: "development"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    target-branch: "master"
+    commit-message:
+      prefix: "ci(github)"
